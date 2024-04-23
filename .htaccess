@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Exclude existing files or directories from rewriting
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite rule to pass the controller, action, and id parameters dynamically
+RewriteRule ^([^/]+)(?:/([^/]+))?(?:/([^/]+))?/?$ index.php?controller=$1&action=$2&id=$3 [L]
